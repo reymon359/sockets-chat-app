@@ -1,8 +1,20 @@
 var socket = io(); // Using var for browser compatibility
-// The .on are to listen and .emit to send
-// To know when its connected to the server
+
+var params = new URLSearchParams(window.location.search);
+if (!params.has('name')) {
+    window.location = 'index.html';
+    throw new Error('The name is required');
+}
+
+var user = {
+    name: params.get('name')
+};
+
 socket.on('connect', function() {
     console.log('Connected to the server');
+    socket.emit('enterChat', user, function(resp) {
+        console.log('Users connected', resp);
+    });
 });
 // To know when the server connection is lost
 socket.on('disconnect', function() {
