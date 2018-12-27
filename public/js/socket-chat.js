@@ -28,6 +28,12 @@ socket.emit('sendMessage', {
     console.log('Server response: ', resp);
 });
 // Listen info from server
-socket.on('sendMessage', function(message) {
+socket.on('createMessage', function(message) {
     console.log('Server: ', message);
+});
+
+// Listen people changes
+// When an user/person enters or leaves the chat
+socket.on('peopleList', function(people) {
+    console.log('Server: ', people);
 });
