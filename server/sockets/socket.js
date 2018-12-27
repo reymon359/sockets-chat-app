@@ -40,4 +40,13 @@ io.on('connection', (client) => {
         client.broadcast.emit('peopleList', users.getPeople());
 
     });
+
+    // Private messages
+    client.on('privateMessage', data => {
+        if (data.message !== '' && data.to !== '') {
+            let person = users.getPerson(client.id);
+            client.broadcast.to(data.to).emit('privateMessage', createMessage(person.name, data.message));
+
+        }
+    });
 });
