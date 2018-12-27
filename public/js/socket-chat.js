@@ -16,17 +16,20 @@ socket.on('connect', function() {
         console.log('Users connected', resp);
     });
 });
+
 // To know when the server connection is lost
 socket.on('disconnect', function() {
     console.log('Connection with the server lost');
 });
+
 // Send info to the server
-socket.emit('sendMessage', {
-    user: 'Ramon',
-    message: 'Hello world'
-}, function(resp) {
-    console.log('Server response: ', resp);
-});
+// socket.emit('createMessage', {
+// user: 'Ramon',
+// message: 'Hello world'
+// }, function(resp) {
+// console.log('Server response: ', resp);
+// });
+
 // Listen info from server
 socket.on('createMessage', function(message) {
     console.log('Server: ', message);
