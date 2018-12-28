@@ -8,17 +8,21 @@ const users = new Users();
 // To know when an user (client) connects to the server
 io.on('connection', (client) => {
     client.on('enterChat', (data, callback) => {
+        console.log(data);
         // If there is no name we return the callback
-        if (!data.name) {
+        if (!data.name || !data.room) {
             return callback({
                 error: true,
-                message: 'The name is required'
+                message: 'Name or room are required'
             });
         }
         // I emit a message when an person connects to the chat
-        client.broadcast.emit('createMessage', createMessage('Admin', `${data.name} entered`));
+        // client.broadcast.emit('createMessage', createMessage('Admin', `${data.name} entered`));
 
-        let people = users.addPerson(client.id, data.name);
+        // Connection the user to a room
+        client.join(data.room);
+
+        let people = users.addPerson(client.id, data.name, data.room);
         client.broadcast.emit('peopleList', users.getPeople());
         // We return the people connected to the chat
         return callback(people);

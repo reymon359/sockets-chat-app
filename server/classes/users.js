@@ -3,8 +3,8 @@ class Users {
     constructor() {
         this.people = [];
     }
-    addPerson(id, name) {
-        let person = { id, name };
+    addPerson(id, name, room) {
+        let person = { id, name, room };
         this.people.push(person);
         return this.people;
     }
