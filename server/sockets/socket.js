@@ -8,7 +8,6 @@ const users = new Users();
 // To know when an user (client) connects to the server
 io.on('connection', (client) => {
     client.on('enterChat', (data, callback) => {
-        console.log(data);
         // If there is no name we return the callback
         if (!data.name || !data.room) {
             return callback({
@@ -16,16 +15,17 @@ io.on('connection', (client) => {
                 message: 'Name or room are required'
             });
         }
-        // I emit a message when an person connects to the chat
-        // client.broadcast.emit('createMessage', createMessage('Admin', `${data.name} entered`));
+
 
         // Connection the user to a room
         client.join(data.room);
 
+        // I emit a message when an person connects to the chat
+        client.broadcast.to(data.room).emit('createMessage', createMessage('Admin', `${data.name} entered`));
         let people = users.addPerson(client.id, data.name, data.room);
-        client.broadcast.emit('peopleList', users.getPeople());
+        client.broadcast.to(data.room).emit('peopleList', users.getPeopleFromRoom(data.room));
         // We return the people connected to the chat
-        return callback(people);
+        return callback(users.getPeopleFromRoom(data.room));
     });
 
     // When a person creates a message to the chat
@@ -34,14 +34,14 @@ io.on('connection', (client) => {
         let person = users.getPerson(client.id);
 
         let message = createMessage(person.name, data.message);
-        client.broadcast.emit('createMessage', message);
+        client.broadcast.to(person.room).emit('createMessage', message);
     });
 
     // To know when the user/person disconnects
     client.on('disconnect', () => {
         let personDeleted = users.deletePerson(client.id);
-        client.broadcast.emit('createMessage', createMessage('Admin', `${personDeleted.name} left`));
-        client.broadcast.emit('peopleList', users.getPeople());
+        client.broadcast.to(personDeleted.room).emit('createMessage', createMessage('Admin', `${personDeleted.name} left`));
+        client.broadcast.to(personDeleted.room).emit('peopleList', users.getPeopleFromRoom(personDeleted.room));
 
     });
 
