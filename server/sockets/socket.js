@@ -20,12 +20,12 @@ io.on('connection', (client) => {
         // Connection the user to a room
         client.join(data.room);
 
-        // I emit a message when an person connects to the chat
-        client.broadcast.to(data.room).emit('createMessage', createMessage('Admin', `${data.name} entered`));
-        let people = users.addPerson(client.id, data.name, data.room);
+        users.addPerson(client.id, data.name, data.room);
         client.broadcast.to(data.room).emit('peopleList', users.getPeopleFromRoom(data.room));
+        client.broadcast.to(data.room).emit('createMessage', createMessage('Admin', `${data.name} joined`));
+
         // We return the people connected to the chat
-        return callback(users.getPeopleFromRoom(data.room));
+        callback(users.getPeopleFromRoom(data.room));
     });
 
     // When a person creates a message to the chat
