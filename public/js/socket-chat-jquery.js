@@ -9,11 +9,17 @@ var divUsers = $('#divUsers');
 var sendForm = $('#sendForm');
 var txtMessage = $('#txtMessage');
 var divChatbox = $('#divChatbox');
+var chatTitle = $('#chatTitle');
+
+function renderChatTitle() {
+    var html = '';
+    html += '<h3 class="box-title">Chat room <small>' + params.get('room') + '</small></h3>';
+    chatTitle.html(html);
+}
+
 
 // Functions to render users
 function renderUsers(people) {
-
-    console.log(people);
 
     var html = '';
 

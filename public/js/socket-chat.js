@@ -13,7 +13,9 @@ var user = {
 
 socket.on('connect', function() {
     console.log('Connected to the server');
+    renderChatTitle();
     socket.emit('enterChat', user, function(resp) {
+
         // console.log('Users connected', resp);
         renderUsers(resp);
     });
