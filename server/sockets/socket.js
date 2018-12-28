@@ -29,12 +29,14 @@ io.on('connection', (client) => {
     });
 
     // When a person creates a message to the chat
-    client.on('createMessage', (data) => {
+    client.on('createMessage', (data, callback) => {
         // First we get all the person data
         let person = users.getPerson(client.id);
 
         let message = createMessage(person.name, data.message);
         client.broadcast.to(person.room).emit('createMessage', message);
+
+        callback(message);
     });
 
     // To know when the user/person disconnects

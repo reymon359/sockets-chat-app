@@ -1,7 +1,14 @@
 var params = new URLSearchParams(window.location.search);
 
+var name = params.get('name');
+var room = params.get('room');
+
+
 // jQuery references
 var divUsers = $('#divUsers');
+var sendForm = $('#sendForm');
+var txtMessage = $('#txtMessage');
+var divChatbox = $('#divChatbox');
 
 // Functions to render users
 function renderUsers(people) {
@@ -19,6 +26,22 @@ function renderUsers(people) {
     divUsers.html(html);
 }
 
+function renderMessages(message) {
+
+    var html = '';
+
+    html += '    <li class="animated fadeIn">';
+    html += '    <div class="chat-img"><img src="assets/images/users/1.jpg" alt="user" /></div>';
+    html += '    <div class="chat-content">';
+    html += '        <h5>' + message.name + '</h5>';
+    html += '        <div class="box bg-light-info">' + message.message + '</div>';
+    html += '    </div>';
+    html += '    <div class="chat-time">10:56 am</div>';
+    html += '</li>';
+
+    divChatbox.append(html);
+}
+
 // Listeners
 divUsers.on('click', 'a', function() {
     // The this makes reference to the ancle-tag element that was clicked
@@ -26,4 +49,21 @@ divUsers.on('click', 'a', function() {
     if (id) {
         console.log(id);
     }
+});
+
+sendForm.on('submit', function(e) {
+
+    e.preventDefault();
+
+    // .trim() removes the empty spaces before and after
+    if (txtMessage.val().trim().length === 0) {
+        return
+    }
+    socket.emit('createMessage', {
+        name: name,
+        message: txtMessage.val()
+    }, function(message) {
+        txtMessage.val('').focus();
+        renderMessages(message);
+    });
 });

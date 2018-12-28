@@ -34,7 +34,9 @@ socket.on('disconnect', function() {
 
 // Listen info from server
 socket.on('createMessage', function(message) {
-    console.log('Server: ', message);
+    // console.log('Server: ', message);
+    renderMessages(message);
+
 });
 
 // Listen people changes
