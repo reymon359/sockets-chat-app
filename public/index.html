@@ -32,13 +32,22 @@
 <!-- Check if it is shared -->
 <!-- ============================================================== -->
 <script>
+    let room = '';
+
     function bitingMyNail() {
         randomBackground();
+        checkIfSharing();
     }
 
     //  Random background from unsplash 
     function randomBackground() {
         document.getElementById('wrapper').setAttribute('style', `background-image:url(../assets/images/background/background${Math.floor(Math.random() * 6)+1}.jpg);height:100vh;background-size: cover;`);
+    }
+
+    //  Check if someone shared a room
+    function checkIfSharing() {
+        let url = new URL(window.location.href);
+        room = url.searchParams.get("room");
     }
 </script>
 
