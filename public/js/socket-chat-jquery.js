@@ -23,7 +23,7 @@ function renderUsers(people) {
 
     var html = '';
 
-    html += '<li><a href="javascript:void(0)" class="active"> Chat <span> ' + params.get('room') + '</span></a></li>';
+    html += '<li><a href="javascript:void(0)" > <span> People here</span></a></li>';
 
     for (var i = 0; i < people.length; i++) {
         if (people[i].name === params.get('name')) {

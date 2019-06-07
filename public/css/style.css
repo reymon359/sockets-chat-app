@@ -7987,7 +7987,7 @@ File: scss
         left: 0px;
     }
     .chat-main-box .chat-left-aside .open-panel {
-        display: block;
+        /* display: block; */
     }
     .chat-main-box .chat-right-aside {
         width: 100%;
