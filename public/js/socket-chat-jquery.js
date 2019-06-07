@@ -14,7 +14,7 @@ var chatTitle = $('#chatTitle');
 
 function renderChatTitle() {
     var html = '';
-    html += '<h3 class="box-title">Chat room <small>' + params.get('room') + '</small> &nbsp;&nbsp;&nbsp; <span> Users: <small>' + usersNumber + '</small></span></h3>';
+    html += '<h3 class="box-title">Chat room <small>' + params.get('room') + '</small> &nbsp;&nbsp;&nbsp; <span> Users: <small>' + usersNumber + '</small></span> &nbsp;&nbsp;&nbsp;<button class="btn btn-info btn-rounded bg-dark" type="submit">Share room</button></h3>';
     chatTitle.html(html);
 }
 

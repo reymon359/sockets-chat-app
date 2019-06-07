@@ -29,15 +29,20 @@
 </head>
 
 <!-- ============================================================== -->
-<!-- Random background from unsplash -->
+<!-- Check if it is shared -->
 <!-- ============================================================== -->
 <script>
+    function bitingMyNail() {
+        randomBackground();
+    }
+
+    //  Random background from unsplash 
     function randomBackground() {
         document.getElementById('wrapper').setAttribute('style', `background-image:url(../assets/images/background/background${Math.floor(Math.random() * 6)+1}.jpg);height:100vh;background-size: cover;`);
     }
 </script>
 
-<body onload="randomBackground()" class="card-no-border">
+<body onload="bitingMyNail()" class="card-no-border">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
