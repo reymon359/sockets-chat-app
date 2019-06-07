@@ -26,8 +26,13 @@ function renderUsers(people) {
     html += '<li><a href="javascript:void(0)" class="active"> Chat <span> ' + params.get('room') + '</span></a></li>';
 
     for (var i = 0; i < people.length; i++) {
+        if (people[i].name === params.get('name')) {
 
-        html += ' <li>  <a data-id="' + people[i].id + '" href="javascript:void(0)"><img src="assets/images/users/2.png" alt="user-img" class="img-circle"> <span>' + people[i].name + ' <small class="text-success">online</small></span></a></li>';
+            html += ' <li>  <a data-id="' + people[i].id + '" href="javascript:void(0)"><img src="assets/images/users/1.png" alt="user-img" class="img-circle"> <span>' + people[i].name + ' <small class="text-success">online</small></span></a></li>';
+        } else {
+
+            html += ' <li>  <a data-id="' + people[i].id + '" href="javascript:void(0)"><img src="assets/images/users/2.png" alt="user-img" class="img-circle"> <span>' + people[i].name + ' <small class="text-success">online</small></span></a></li>';
+        }
     }
     divUsers.html(html);
 }
