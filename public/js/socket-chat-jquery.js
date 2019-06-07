@@ -27,7 +27,7 @@ function renderUsers(people) {
 
     for (var i = 0; i < people.length; i++) {
 
-        html += ' <li>  <a data-id="' + people[i].id + '" href="javascript:void(0)"><img src="assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>' + people[i].name + ' <small class="text-success">online</small></span></a></li>';
+        html += ' <li>  <a data-id="' + people[i].id + '" href="javascript:void(0)"><img src="assets/images/users/2.png" alt="user-img" class="img-circle"> <span>' + people[i].name + ' <small class="text-success">online</small></span></a></li>';
     }
     divUsers.html(html);
 }
@@ -51,13 +51,13 @@ function renderMessages(message, me) {
         html += '        <h5>' + message.name + '</h5>';
         html += '        <div class="box bg-light-inverse">' + message.message + '</div>';
         html += '    </div>';
-        html += '    <div class="chat-img"><img src="assets/images/users/5.jpg" alt="user" /></div>';
+        html += '    <div class="chat-img"><img src="assets/images/users/1.png" alt="user" /></div>';
         html += '    <div class="chat-time">' + hour + '</div>';
         html += '</li> ';
     } else {
         html += '<li class="animated fadeIn ' + textAlign + '">';
         if (message.name !== 'Admin') {
-            html += '    <div class="chat-img"><img src="assets/images/users/1.jpg" alt="user" /></div>';
+            html += '    <div class="chat-img"><img src="assets/images/users/2.png" alt="user" /></div>';
         }
         html += '    <div class="chat-content">';
         if (message.name !== 'Admin') {
