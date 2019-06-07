@@ -13,8 +13,9 @@ var divChatbox = $('#divChatbox');
 var chatTitle = $('#chatTitle');
 
 function renderChatTitle() {
+    console.log(window.location.hostname);
     var html = '';
-    html += '<h3 class="box-title">Chat room <small>' + params.get('room') + '</small> &nbsp;&nbsp;&nbsp; <span> Users: <small>' + usersNumber + '</small></span> &nbsp;&nbsp;&nbsp;<button class="btn btn-info btn-rounded bg-dark" type="submit">Share room</button></h3>';
+    html += `<h3 class="box-title">Chat room <small>${params.get('room')}</small> &nbsp;&nbsp;&nbsp; <span> Users: <small>${usersNumber}</small></span> &nbsp;&nbsp;&nbsp;<a href="https://www.addtoany.com/share_save?linkurl=${window.location.hostname}/index.html" class="btn btn-link btn-rounded bg-dark text-light" type="submit">Share room</a></h3>`;
     chatTitle.html(html);
 }
 
