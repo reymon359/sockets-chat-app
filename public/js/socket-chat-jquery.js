@@ -3,6 +3,7 @@ var params = new URLSearchParams(window.location.search);
 var name = params.get('name');
 var room = params.get('room');
 
+let usersNumber = 0;
 
 // jQuery references
 var divUsers = $('#divUsers');
@@ -13,17 +14,18 @@ var chatTitle = $('#chatTitle');
 
 function renderChatTitle() {
     var html = '';
-    html += '<h3 class="box-title">Chat room <small>' + params.get('room') + '</small></h3>';
+    html += '<h3 class="box-title">Chat room <small>' + params.get('room') + '</small> &nbsp;&nbsp;&nbsp; <span> Users: <small>' + usersNumber + '</small></span></h3>';
     chatTitle.html(html);
 }
 
 
 // Functions to render users
 function renderUsers(people) {
+    usersNumber = people.length;
 
     var html = '';
 
-    html += '<li><a href="javascript:void(0)" > <span> People here</span></a></li>';
+    html += '<li><a href="javascript:void(0)" > <span> Users</span></a></li>';
 
     for (var i = 0; i < people.length; i++) {
         if (people[i].name === params.get('name')) {
@@ -35,6 +37,7 @@ function renderUsers(people) {
         }
     }
     divUsers.html(html);
+    renderChatTitle(); // For the users number
 }
 
 function renderMessages(message, me) {
