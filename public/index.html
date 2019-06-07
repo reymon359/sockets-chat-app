@@ -28,7 +28,16 @@
 <![endif]-->
 </head>
 
-<body class="card-no-border">
+<!-- ============================================================== -->
+<!-- Random background from unsplash -->
+<!-- ============================================================== -->
+<script>
+    function randomBackground() {
+        document.getElementsByClassName('login-register')[0].setAttribute('style', 'background-image:url(../assets/images/background/login-register.jpg);');
+    }
+</script>
+
+<body onload="randomBackground()" class="card-no-border">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -43,7 +52,7 @@
     <!-- ============================================================== -->
     <section id="wrapper">
 
-        <div class="login-register" style="background-image:url(../assets/images/background/login-register.jpg);">
+        <div class="login-register">
             <h1 style="text-align: center">Chat rooms</h1>
             <p style="text-align: center">Select a user name and a room to enter</p>
 
