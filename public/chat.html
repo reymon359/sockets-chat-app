@@ -20,7 +20,6 @@
     <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
 </head>
 
-
 <script>
     //  Random background from unsplash 
     function randomBackground() {
@@ -30,43 +29,25 @@
 
 <body onload="randomBackground()" class="fix-header single-column card-no-border fix-sidebar">
 
-    <!-- ============================================================== -->
-    <!-- Main wrapper -->
-    <!-- ============================================================== -->
     <div id="main-wrapper">
 
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
         <div style="padding-top:0px;" class="page-wrapper">
 
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
 
                 <h1 class="mb-3 bg-light" style="text-align: center;background-color: rgba(255, 255, 255, 0.8);">Chat rooms <small><a style="font-size: .7em;" href="index.html" >back home</a></small></h1>
 
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
                 <div class="row animated fadeIn">
                     <div class="col-12">
                         <div class="card m-b-0">
                             <!-- .chat-row -->
                             <div class="chat-main-box">
-                                <!-- .chat-left-panel -->
                                 <div class="chat-left-aside">
                                     <div class="open-panel" style="display: none!important"><i class="ti-angle-right"></i></div>
                                     <div class="chat-left-inner">
-                                        <!-- <div class="form-material">
-                                            <input class="form-control p-20" type="text" placeholder="Search Contact">
-                                        </div> -->
                                         <ul class="chatonline style-none" id="divUsers"></ul>
                                     </div>
                                 </div>
-                                <!-- .chat-left-panel -->
-                                <!-- .chat-right-panel -->
                                 <div class="chat-right-aside">
                                     <div class="chat-main-header">
                                         <div id="chatTitle" class="p-20 b-b">
@@ -96,37 +77,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
             <footer class="footer">
                 <a href="https://ramonmorcillo.com" style="background-color: rgba(255, 255, 255, 0.9);" target="_blank" class="mt-5">Chat Rooms - Ramon morcillo @reymon359</a>
             </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-
-
-
-
-
-
     <script src="js/libs/jquery.min.js"></script>
     <script src="socket.io/socket.io.js"></script>
 
