@@ -57,7 +57,7 @@ function renderMessages(message, me) {
         html += '<li class="reverse">';
         html += '    <div class="chat-content">';
         html += '        <h5>' + message.name + '</h5>';
-        html += '        <div class="box bg-light-inverse">' + message.message + '</div>';
+        html += '        <div class="box bg-light">' + message.message + '</div>';
         html += '    </div>';
         html += '    <div class="chat-img"><img src="assets/images/users/1.png" alt="user" /></div>';
         html += '    <div class="chat-time">' + hour + '</div>';
