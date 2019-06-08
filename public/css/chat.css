@@ -2,7 +2,7 @@
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     height: 600px !important;
-    max-height: 50vh!important;
+    max-height: 55vh!important;
 }
 
 textarea {

@@ -19,13 +19,16 @@
     <!-- You can change the theme colors from here -->
     <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
 </head>
-<!-- ============================================================== -->
-<!-- Function to share the room -->
-<!-- ============================================================== -->
+
+
 <script>
+    //  Random background from unsplash 
+    function randomBackground() {
+        document.getElementsByClassName('container-fluid')[0].setAttribute('style', `background-image:url(../assets/images/background/background${Math.floor(Math.random() * 7)+1}.jpg);background-size: cover;`);
+    }
 </script>
 
-<body class="fix-header single-column card-no-border fix-sidebar">
+<body onload="randomBackground()" class="fix-header single-column card-no-border fix-sidebar">
 
     <!-- ============================================================== -->
     <!-- Main wrapper -->
@@ -42,7 +45,7 @@
             <!-- ============================================================== -->
             <div class="container-fluid">
 
-                <h1 class="mb-3" style="text-align: center">Chat rooms <small><a style="font-size: .7em;" href="index.html" target="_blank">back home</a></small></h1>
+                <h1 class="mb-3 bg-light" style="text-align: center">Chat rooms <small><a style="font-size: .7em;" href="index.html" target="_blank">back home</a></small></h1>
 
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
