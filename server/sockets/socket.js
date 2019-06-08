@@ -8,7 +8,7 @@ const users = new Users();
 // To know when an user (client) connects to the server
 io.on('connection', (client) => {
     client.on('enterChat', (data, callback) => {
-        console.log('enterchat', data);
+        // console.log('enterchat', data);
         // If there is no name we return the callback
         if (!data.name || !data.room) {
             return callback({

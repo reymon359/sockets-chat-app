@@ -102,7 +102,7 @@ divUsers.on('click', 'a', function() {
     // The this makes reference to the ancle-tag element that was clicked
     var id = $(this).data('id');
     if (id) {
-        console.log(id);
+        // console.log(id);
     }
 });
 

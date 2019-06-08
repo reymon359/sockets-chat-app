@@ -12,7 +12,7 @@ var user = {
 };
 
 socket.on('connect', function() {
-    console.log('Connected to the server');
+    // console.log('Connected to the server');
     renderChatTitle();
     socket.emit('enterChat', user, function(resp) {
 
@@ -23,7 +23,7 @@ socket.on('connect', function() {
 
 // To know when the server connection is lost
 socket.on('disconnect', function() {
-    console.log('Connection with the server lost');
+    // console.log('Connection with the server lost');
 });
 
 // Send info to the server
@@ -50,5 +50,5 @@ socket.on('peopleList', function(people) {
 
 // Private messages
 socket.on('privateMessage', function(message) {
-    console.log('Private message: ', message);
+    // console.log('Private message: ', message);
 });
